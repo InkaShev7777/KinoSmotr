@@ -1,18 +1,18 @@
 <?php
 include_once 'IObjects.php';
     class User implements IObjects {
-        private $id;
+        public $id;
         private $login;
         private $password;
         private $idSub;
 
-        private function __construct($id,$login,$password,$idSub){
+        public function __construct($id,$login,$password,$idSub){
             $this->id = $id;
             $this->login = $login;
             $this->password = $password;
             $this->idSub = $idSub;
         }
-        public function __toStrung(){
+        public function __toString(){
             return "ID: ".$this->id." Login: ".$this->login." Password: ".$this->password." idSub: ".$this->idSub;
         }
 

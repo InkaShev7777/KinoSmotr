@@ -2,7 +2,7 @@
     abstract class Controller{
         private $connection;
         private $listmodel;
-        private function __construct($connection){
+        public function __construct($connection){
             $this->connection = $connection;
             $this->listmodel = array();
         }
@@ -24,6 +24,9 @@
         public function SelectionById($id){
             return $this->listmodel[$id];
         }
-        
+        public function Select($func){
+            return array_filter($this->listmodel,$func);
+        }
+
     }
 ?>

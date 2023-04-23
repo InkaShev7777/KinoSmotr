@@ -5,7 +5,7 @@ include_once 'IObjects.php';
         private $title;
         private $isPremium;
 
-        private function __construct($id,$title,$isPremium){
+        public function __construct($id,$title,$isPremium){
             $this->id = $id;
             $this->title = $title;
             $this->isPremium = $isPremium;
