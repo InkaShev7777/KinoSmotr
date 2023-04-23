@@ -8,14 +8,14 @@ include_once 'IObjects.php';
             $this->id = $id;
             $this->title = $title;
         }
+        public function __toString(){
+            return "ID: ".$this->id." Title: ".$this->title;
+        }
 
         public function equals($model)
         {
             if(gettype($model) == gettype($this)){
                 if(get_class($model) == get_class($this)){
-                    //
-                    //  if???
-                    //
                    if($this->title == $model->title){
                       return true;
                    }
