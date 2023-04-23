@@ -1,9 +1,13 @@
 <?php
-include_once 'ORM/Objects/Role.php';
-include_once 'ORM/Objects/Genre.php';
-include_once 'ORM/Controllers/UserController.php';
-include_once 'ORM/Objects/User.php';
-include_once 'ORM/db.php';
+
+use Controllers\UserController;
+use Models\User;
+
+include_once 'Models/Role.php';
+include_once 'Models/Genre.php';
+include_once 'Controllers/UserController.php';
+include_once 'Models/User.php';
+include_once 'db.php';
 //$role1 = new Role(1,'test');
 //$role2 = new Role(1,'test');
 //$gen = new Genre(1,'tt');
