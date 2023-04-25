@@ -1,22 +1,22 @@
 <?php
 
-namespace Models;
+namespace db\Models;
 
 include_once 'IObjects.php';
 
 class Film implements IObjects
 {
-    private $id;
-    private $title;
-    private $desc;
-    private $imdb;
-    private $isPremium;
-    private $img;
-    private $year;
-    private $isPop;
-    private $genreID;
-    private $country;
-    private $participantID;
+    public $id;
+    public $title;
+    public $desc;
+    public $imdb;
+    public $isPremium;
+    public $img;
+    public $year;
+    public $isPop;
+    public $genreID;
+    public $country;
+    public $participantID;
 
     public function __construct($id, $title, $isPremium, $country, $desc, $img, $imdb, $genreID, $isPop, $year, $participantID)
     {

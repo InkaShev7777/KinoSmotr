@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace db\Models;
 
 include_once 'IObjects.php';
 

@@ -1,32 +1,30 @@
 <?php
 
-namespace Models;
+namespace db\Models;
 
 include_once 'IObjects.php';
 
-class Subscribe implements IObjects
+class Role implements IObjects
 {
-    private $id;
-    private $title;
-    private $isPremium;
+    public $id;
+    public $title;
 
-    public function __construct($id, $title, $isPremium)
+    public function __construct($id, $title)
     {
         $this->id = $id;
         $this->title = $title;
-        $this->isPremium = $isPremium;
     }
 
     public function __toString()
     {
-        return "ID: " . $this->id . " Title: " . $this->title . " isPremium" . $this->isPremium;
+        return "ID: " . $this->id . " Title: " . $this->title;
     }
 
     public function equals($model)
     {
         if (gettype($model) == gettype($this)) {
             if (get_class($model) == get_class($this)) {
-                if ($this->title == $model->title && $this->isPremium == $model->isPremium) {
+                if ($this->title == $model->title) {
                     return true;
                 } else {
                     return false;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Models;
+namespace db\Models;
 interface IObjects
 {
     public function equals($model);

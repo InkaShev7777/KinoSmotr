@@ -1,30 +1,32 @@
 <?php
 
-namespace Models;
+namespace db\Models;
 
 include_once 'IObjects.php';
 
-class Genre implements IObjects
+class Participant implements IObjects
 {
-    private $id;
-    private $title;
+    public $id;
+    public $fio;
+    public $idRole;
 
-    public function __construct($id, $title)
+    public function __construct($id, $fio, $idRole)
     {
         $this->id = $id;
-        $this->title = $title;
+        $this->fio = $fio;
+        $this->idRole = $idRole;
     }
 
     public function __toString()
     {
-        return "ID: " . $this->id . " Title: " . $this->title;
+        return "ID: " . $this->id . " FIO: " . $this->fio . " idRole" . $this->idRole;
     }
 
     public function equals($model)
     {
         if (gettype($model) == gettype($this)) {
             if (get_class($model) == get_class($this)) {
-                if ($this->title == $model->title) {
+                if ($this->fio == $model->fio && $this->idRole == $model->idRole) {
                     return true;
                 } else {
                     return false;

@@ -1,17 +1,21 @@
 <?php
 
-namespace Controllers;
+namespace db\Controllers;
+use db\Models\Film;
+
 abstract class Controller
 {
-    private $connection;
-    private $listmodel;
+    protected $connection;
+    protected $listmodel;
 
     public function __construct($connection)
     {
         $this->connection = $connection;
         $this->listmodel = array();
+        $this->getListModel();
     }
 
+    abstract function getListModel();
     public function Add($model)
     {
         array_push($this->listmodel, $model);
