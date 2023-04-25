@@ -11,30 +11,33 @@ use db\Controllers\RoleController;
 use db\db;
 
 if(isset($_GET['author'])){
-    getByAuthor();
-}
-function getByAuthor(){
-    $film =  new FilmController(db::getInstance());
     $role = new RoleController(db::getInstance());
     $listRole = $role->Select(function ($x){return $x->title == "Author";});
     $idRole = $listRole[0]->id;
     $par = new ParticipantController(db::getInstance());
     $listPar = $par->Select(function ($x) use ($idRole) {return $x->idRole == $idRole;});
-    foreach ($listPar as $item){
-        if($item->fio == $_GET['author']){
-            $masFilms = $film->Select(function ($x) use ($item) {return $x->participantID == $item->id;});
+    if(count(getByAuthor($listPar[0])) > 0){
+        echo json_encode(getByAuthor($listPar[0]));
+    }
+    else{
+        echo "400";
+    }
+}
+function getByAuthor($author):array{
+        $film =  new FilmController(db::getInstance());
+        if($author->fio == $_GET['author']){
+            $masFilms = $film->Select(function ($x) use ($author) {return $x->participantID == $author->id;});
             if( count($masFilms) > 0 ){
-                $json = json_encode($masFilms);
-                echo $json;
+
+                return $masFilms;
             }
             else{
-                echo "400";
+                return [];
             }
 
         }
         else{
-            echo "400";
+            return [];
         }
-    }
 }
 ?>
